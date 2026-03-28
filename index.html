@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payople.com | The Connection Between Pay + People</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-pink: #FF10A2;    /* Warna Pink dari Logo Anda */
+            --deep-black: #1d1d1f;      /* Hitam Elit Apple-style */
+            --soft-gray: #86868b;       /* Abu-abu teks sekunder */
+            --pure-white: #ffffff;
+            --glass-bg: rgba(255, 255, 255, 0.8);
+            --glass-border: rgba(255, 16, 162, 0.15);
+            --glass-blur: blur(20px);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background-color: var(--pure-white);
+            color: var(--deep-black);
+            overflow-x: hidden;
+            letter-spacing: -0.015em;
+            scroll-behavior: smooth;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            background: radial-gradient(circle at 50% 120%, rgba(255, 16, 162, 0.04), #ffffff 75%);
+        }
+
+        .logo-container {
+            margin-bottom: 40px;
+            transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        
+        .logo-container:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-container img {
+            max-width: 320px;
+            height: auto;
+            /* Filter halus untuk menyatukan logo dengan desain */
+            filter: drop-shadow(0 8px 20px rgba(255, 16, 162, 0.12));
+        }
+
+        .hero-title {
+            font-size: 4.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            letter-spacing: -0.04em;
+            line-height: 1;
+        }
+
+        .highlight-pay { color: var(--primary-pink); }
+
+        .hero-p {
+            font-size: 1.4rem;
+            font-weight: 400;
+            color: var(--soft-gray);
+            max-width: 700px;
+            margin-bottom: 50px;
+            line-height: 1.5;
+        }
+
+        .btn-payople {
+            background-color: var(--deep-black);
+            color: white;
+            padding: 18px 45px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-block;
+            border: 2px solid var(--deep-black);
+        }
+
+        .btn-payople:hover {
+            background-color: var(--primary-pink);
+            border-color: var(--primary-pink);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(255, 16, 162, 0.25);
+        }
+
+        /* --- Brand Philosophy Section --- */
+        .philosophy-section {
+            padding: 100px 20px;
+            background-color: #fafafa;
+            text-align: center;
+        }
+
+        .philosophy-container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            text-align: left;
+        }
+
+        .phil-card {
+            background: white;
+            padding: 50px;
+            border-radius: 30px;
+            border: 1px solid #eeeeee;
+            transition: all 0.4s ease;
+        }
+
+        .phil-card:hover {
+            border-color: var(--primary-pink);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.02);
+        }
+
+        .phil-card h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .label-pay { color: var(--primary-pink); }
+        
+        .phil-card p {
+            color: var(--soft-gray);
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+
+        /* --- Inquiry Section (Glassmorphism) --- */
+        .inquiry-section {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 100px 20px;
+            background: #ffffff;
+        }
+
+        .glass-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 40px;
+            padding: 70px;
+            max-width: 1050px;
+            width: 100%;
+            display: flex;
+            gap: 70px;
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            box-shadow: 0 30px 70px rgba(255, 16, 162, 0.05);
+        }
+
+        .glass-content { flex: 1.2; }
+
+        .glass-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 25px;
+            letter-spacing: -0.03em;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 22px;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 18px;
+            margin-bottom: 18px;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--primary-pink);
+            box-shadow: 0 0 0 5px rgba(255, 16, 162, 0.1);
+        }
+
+        .glass-details {
+            flex: 0.8;
+            border-left: 1px solid rgba(0, 0, 0, 0.06);
+            padding-left: 70px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .detail-box { margin-bottom: 40px; }
+
+        .detail-label {
+            color: var(--soft-gray);
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 10px;
+        }
+
+        .detail-value {
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        footer {
+            padding: 80px 20px;
+            text-align: center;
+            color: var(--soft-gray);
+            font-size: 0.95rem;
+            background: #fafafa;
+        }
+
+        /* --- Mobile Responsiveness --- */
+        @media (max-width: 900px) {
+            .hero-title { font-size: 3.2rem; }
+            .philosophy-container { grid-template-columns: 1fr; }
+            .glass-card { flex-direction: column; padding: 45px; gap: 40px; }
+            .glass-details { border-left: none; padding-left: 0; padding-top: 40px; border-top: 1px solid rgba(0, 0, 0, 0.06); }
+            .glass-title { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <div class="logo-container">
+            <img src="logo.png" alt="Payople Logo">
+        </div>
+        <h1 class="hero-title"><span class="highlight-pay">Pay</span> + People.</h1>
+        <p class="hero-p">A premium digital identity designed for the human side of finance. Bridging the gap between seamless transactions and social interaction.</p>
+        <a href="#acquire" class="btn-payople">Inquire for Acquisition</a>
+    </section>
+
+    <section class="philosophy-section">
+        <div class="philosophy-container">
+            <div class="phil-card">
+                <h3 class="label-pay">The "Pay"</h3>
+                <p>Speed, security, and efficiency. Represents the technological core of a modern financial ecosystem that moves at the pace of life.</p>
+            </div>
+            <div class="phil-card">
+                <h3>The "People"</h3>
+                <p>Trust, community, and empathy. Because behind every transaction, there is a person, a story, and a shared human experience.</p>
+            </div>
+        </div>
+        <h2 style="margin-top: 60px; font-weight: 700; font-size: 2rem; letter-spacing: -0.02em;">Humanizing Digital Economy.</h2>
+    </section>
+
+    <section id="acquire" class="inquiry-section">
+        <div class="glass-card">
+            
+            <div class="glass-content">
+                <h2 class="glass-title">Own the Brand</h2>
+                <p style="color: #424245; margin-bottom: 40px; font-size: 1.2rem; line-height: 1.6;">Payople.com is a rare, high-liquidity asset perfect for a global neo-bank, social payment app, or payroll platform.</p>
+                
+                <form action="mailto:admin@domainku.com" method="post" enctype="text/plain">
+                    <div class="input-group">
+                        <input type="text" placeholder="Your Name / Company" required>
+                        <input type="email" placeholder="Professional Email" required>
+                        <input type="text" placeholder="Proposed Offer (USD)" style="font-weight: 800; color: var(--primary-pink);">
+                    </div>
+                    <button type="submit" class="btn-payople" style="width: 100%; cursor: pointer; border: none; font-size: 1.2rem;">Send Inquiry</button>
+                </form>
+            </div>
+
+            <div class="glass-details">
+                <div class="detail-box">
+                    <div class="detail-label">Asset</div>
+                    <div class="detail-value" style="color: var(--primary-pink);">Payople.com</div>
+                </div>
+                <div class="detail-item detail-box">
+                    <div class="detail-label">Category</div>
+                    <div class="detail-value">FinTech / Social Pay</div>
+                </div>
+                <div class="detail-item detail-box">
+                    <div class="detail-label">Market Fit</div>
+                    <div class="detail-value">B2C & P2P Systems</div>
+                </div>
+                <div class="detail-item detail-box">
+                    <div class="detail-label">Transaction</div>
+                    <div class="detail-value">Escrow.com Secured</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2026 Payople.com Digital Asset Portfolio. All rights reserved.
+    </footer>
+
+</body>
+</html>
